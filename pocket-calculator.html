@@ -3,44 +3,47 @@
   <head>
     <title>Pocket Calculator!</title>
     <link rel="stylesheet" type="text/css" href="calculator.css"/>
-    <script type="text/javascript" src="calulator-javascript.js"></script>
+    <script type="text/javascript" src="calculator-javascript.js"></script>
   </head>
   <body>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+    </style>
     <table id="output" border=3>
       <tr>
-        <td colspan=4 id="output"></td>
+        <td colspan=4 id="result"></td>
       </tr>
     </table>
 <br/>
-    <table id="input" border=3>
+    <table id="input" border=3 class="noselect">
       <tr>
-        <td id="top">AC</td>
-        <td id="top">+/-</td>
-        <td id="top">%</td>
-        <td id="right">÷</td>
+        <td class="top" onclick="wipe();">AC</td>
+        <td class="top">+/-</td>
+        <td class="top">%</td>
+        <td class="right">÷</td>
       </tr>
       <tr>
-        <td id="numb">7</td>
-        <td id="numb">8</td>
-        <td id="numb">9</td>
-        <td id="right">×</td>
+        <td class="numb" onclick="seven();">7</td>
+        <td class="numb" onclick="eight();">8</td>
+        <td class="numb" onclick="nine();">9</td>
+        <td class="right">×</td>
       </tr>
       <tr>
-        <td id="numb">4</td>
-        <td id="numb">5</td>
-        <td id="numb">6</td>
-        <td id="right">−</td>
+        <td class="numb" onclick="four();">4</td>
+        <td class="numb" onclick="five();">5</td>
+        <td class="numb" onclick="six();">6</td>
+        <td class="right">−</td>
       </tr>
       <tr>
-        <td id="numb">1</td>
-        <td id="numb">2</td>
-        <td id="numb">3</td>
-        <td id="right">+</td>
+        <td class="numb" onclick="one();">1</td>
+        <td class="numb" onclick="two();">2</td>
+        <td class="numb" onclick="three();">3</td>
+        <td class="right">+</td>
       </tr>
       <tr>
-        <td id="numb" class="zero" colspan="2">0</td>
-        <td id="numb">.</td>
-        <td id="right">=</td>
+        <td class="numb" colspan="2" onclick="zero();">0</td>
+        <td class="numb">.</td>
+        <td class="right">=</td>
       </tr>
     </table>
   </body>
