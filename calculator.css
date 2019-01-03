@@ -1,6 +1,6 @@
 body {
   font-family: Arial;
-  background-color: black;
+  background-image: radial-gradient(#272727,black);
 }
 
 td#result {
@@ -54,7 +54,7 @@ table#output {
   height:120px;
   table-layout: fixed;
   width:600px;
-  border-style: solid;
+  border-style: none;
   border-color: black;
   font-family: 'ZCOOL QingKe HuangYou', cursive;
   font-size: 80px;
@@ -71,7 +71,7 @@ table#input {
   height:90%;
   table-layout: fixed;
   width:600px;
-  border-style: solid;
+  border-style: none;
   border-color: black;
   font-size: 50px;
 }

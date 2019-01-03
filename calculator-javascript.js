@@ -3,6 +3,11 @@ function wipe() {
   document.getElementById("result").innerHTML = clear ;
 }
 
+function plus() {
+  let plus = "+"
+  document.getElementById("result").innerHTML = plus;
+}
+
 function nine() {
   let nine = "9";
   document.getElementById("result").innerHTML += nine ;
