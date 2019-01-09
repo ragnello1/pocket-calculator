@@ -1,72 +1,41 @@
-var numb = "";
-
-function wipe() {
-  let clear = "";
-  numb = "";
-  console.log("clear")
+var x = "";
+var numbers = [];
+var number = "";
+function numberPress() {
+  document.getElementById("result").innerHTML = x
+  console.log(x,numbers);
 }
 
 function nine() {
-  let nine = "9";
-  numb += nine;
-  console.log(numb);
+  x+="9";
+  numberPress();
 }
 
 function eight() {
-  let eight = "8";
-  numb += eight;
-  console.log(numb);
+  x+="8";
+  numberPress();
 }
 
-function seven() {
-  let seven = "7";
-  numb += seven;
-  console.log(numb);
+function wipe() {
+  x = "";
+  numbers = [];
+  console.log(x,numbers);
+  document.getElementById("result").innerHTML = "0";
 }
 
-function six() {
-  let six = "6";
-  numb += six;
-  console.log(numb);
+function plus() {
+  document.getElementById("result").innerHTML = "+";
+  x = Number(x);
+  numbers.push(x);
+  numbers.push("+")
+  x = "";
 }
 
-function five() {
-  let five = "5";
-  numb += five;
-  console.log(numb);
+function equals() {
+  Number(x);
+  numbers.push(x);
+  for(i=0;i<numbers.length;i++) {
+  let y = numbers[i];
+  console.log(y);
+  }
 }
-
-function four() {
-  let four = "4";
-  numb += four;
-  console.log(numb);
-}
-
-function three() {
-  let three = "3";
-  numb += three;
-  console.log(numb);
-}
-
-function two() {
-  let two = "2";
-  numb += two;
-  console.log(numb);
-}
-
-function one() {
-  let one = "1";
-  numb += one;
-  console.log(numb);
-}
-
-function zero() {
-  let zero = "0";
-  numb += zero;
-  console.log(numb);
-}
- function decimal() {
-  let decimal = ".";
-     numb += decimal;
-     console.log(numb);
- }
