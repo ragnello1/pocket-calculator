@@ -1,13 +1,14 @@
 var x = "";
 var numbers = [];
-var signs = [];
+var sign;
 var number = "";
 var sum = "";
-
+var returnedValue;
+var dec = false;
 
 function numberPress() {
   document.getElementById("result").innerHTML = x
-  console.log(Number(x),numbers,signs);
+  console.log(Number(x),numbers);
 }
 
 function nine() {
@@ -60,11 +61,19 @@ function zero() {
   numberPress();
 }
 
+function decimal() {
+  if (dec === false) {
+  x+=".";
+  numberPress();
+  dec = true;}
+}
+
 function wipe() {
   x = "";
   numbers = [];
   signs = [];
-  console.log(x, numbers, signs);
+  dec = false;
+  console.log(x, numbers);
   document.getElementById("result").innerHTML = "0";
 }
 
@@ -72,16 +81,55 @@ function plus() {
   document.getElementById("result").innerHTML = "+";
   x = Number(x);
   numbers.push(x);
-  signs.push("+");
+  sign = "+";
+  dec=false;
+  console.log(sign, numbers);
+  x = "";
+}
+
+function minus() {
+  document.getElementById("result").innerHTML = "−";
+  x = Number(x);
+  numbers.push(x);
+  sign = "−";
+  dec=false;
+  console.log(sign);
+  x = "";
+}
+
+function mult() {
+  document.getElementById("result").innerHTML = "×";
+  x = Number(x);
+  numbers.push(x);
+  sign = "×";
+  dec=false;
+  console.log(sign);
   x = "";
 }
 
 function equals() {
   x = Number(x);
   numbers.push(x);
-  for(i=0;i<numbers.length;i++) {
-    let y = numbers[i];
-    let z = signs[i];
-    console.log(y,z);
+  if (sign === "+") {
+    returnedValue = numbers[0] + numbers[1];
+  }
+  if (sign === "−") {
+    returnedValue = numbers[0] - numbers[1];
+  }
+  if (sign === "×") {
+    returnedValue = numbers[0] * numbers[1];
+  }
+  if (returnedValue = isNaN(returnedValue)) {
+    returnedValue = "ERROR"
+    document.getElementById("result").innerHTML = returnedValue;
+    x="";
+    dec=false;
+  } else {
+    document.getElementById("result").innerHTML = returnedValue;
+    numbers[0] = returnedValue;
+    numbers.pop();
+    x="";
+    dec=false;
+    console.log(numbers);
   }
 }
