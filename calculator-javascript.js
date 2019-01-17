@@ -1,135 +1,148 @@
 var x = "";
-var numbers = [];
-var sign;
 var number = "";
-var sum = "";
-var returnedValue;
 var dec = false;
-
+var y = "";
+var numbers = [];
 function numberPress() {
-  document.getElementById("result").innerHTML = x
-  console.log(Number(x),numbers);
+  document.getElementById("result").innerHTML = y;
+  console.log(y, x);
 }
 
 function nine() {
   x+="9";
+  y+="9";
   numberPress();
 }
 
 function eight() {
   x+="8";
+  y+="8";
   numberPress();
 }
 
 function seven() {
   x+="7";
+  y+="7";
   numberPress();
 }
 
 function six() {
   x+="6";
+  y+="6";
   numberPress();
 }
 
 function five() {
   x+="5";
+  y+="5";
   numberPress();
 }
 
 function four() {
   x+="4";
+  y+="4";
   numberPress();
 }
 
 function three() {
   x+="3";
+  y+="3";
   numberPress();
 }
 
 function two() {
   x+="2";
+  y+="2";
   numberPress();
 }
 
 function one() {
   x+="1";
+  y+="1";
   numberPress();
 }
 
 function zero() {
   x+="0";
+  y+="0";
   numberPress();
 }
 
 function decimal() {
   if (dec === false) {
   x+=".";
+  y+=".";
   numberPress();
   dec = true;}
 }
 
 function wipe() {
   x = "";
-  numbers = [];
-  signs = [];
+  y = "";
   dec = false;
-  console.log(x, numbers);
+  console.log(y,x);
   document.getElementById("result").innerHTML = "0";
 }
 
 function plus() {
   document.getElementById("result").innerHTML = "+";
-  x = Number(x);
-  numbers.push(x);
-  sign = "+";
+  numbers.push(y);
+  x += "+";
   dec=false;
-  console.log(sign, numbers);
-  x = "";
+  y = "";
 }
 
 function minus() {
   document.getElementById("result").innerHTML = "−";
-  x = Number(x);
-  numbers.push(x);
-  sign = "−";
+  numbers.push(y);
+  x += "-";
   dec=false;
-  console.log(sign);
-  x = "";
+  y = "";
 }
 
 function mult() {
   document.getElementById("result").innerHTML = "×";
-  x = Number(x);
-  numbers.push(x);
-  sign = "×";
+  numbers.push(y);
+  x += "*";
   dec=false;
-  console.log(sign);
-  x = "";
+  y = "";
+}
+
+function divide() {
+  document.getElementById("result").innerHTML = "÷";
+  numbers.push(y);
+  x += "/";
+  dec=false;
+  y = "";
+}
+
+function neg() {
+  if (y !== "0") {
+    y = y * -1;
+    x = x * -1;
+    document.getElementById("result").innerHTML = y;
+  }
+}
+
+function perc() {
+
 }
 
 function equals() {
-  x = Number(x);
-  numbers.push(x);
-  if (sign === "+") {
-    returnedValue = numbers[0] + numbers[1];
-  }
-  if (sign === "−") {
-    returnedValue = numbers[0] - numbers[1];
-  }
-  if (sign === "×") {
-    returnedValue = numbers[0] * numbers[1];
-  }
-  if (returnedValue = isNaN(returnedValue)) {
-    returnedValue = "ERROR"
-    document.getElementById("result").innerHTML = returnedValue;
-    x="";
-    dec=false;
-  } else {
-    document.getElementById("result").innerHTML = returnedValue;
-    numbers[0] = returnedValue;
-    numbers.pop();
-    x="";
-    dec=false;
-    console.log(numbers);
-  }
+  numbers.push(y);
+  var numb = eval(x);
+
+  x = numb;
+  console.log(numb, x);
+  x="";
+  document.getElementById("result").innerHTML = numb;
+
+  y="";
+if (Number.isNaN(eval(x))) {
+  x="";
+  y="";
+  numbers= [];
+  number = "";
+    document.getElementById("result").innerHTML = "ERROR";
+}
 }
