@@ -2,7 +2,9 @@ var x = "";
 var number = "";
 var dec = false;
 var y = "";
+var z = "";
 var numbers = [];
+var sign;
 function numberPress() {
   document.getElementById("result").innerHTML = y;
   console.log(y, x);
@@ -88,6 +90,7 @@ function plus() {
   document.getElementById("result").innerHTML = "+";
   numbers.push(y);
   x += "+";
+  sign = "plus";
   dec=false;
   y = "";
 }
@@ -97,6 +100,7 @@ function minus() {
   numbers.push(y);
   x += "-";
   dec=false;
+  sign = "minus";
   y = "";
 }
 
@@ -105,6 +109,7 @@ function mult() {
   numbers.push(y);
   x += "*";
   dec=false;
+  sign = "multiply";
   y = "";
 }
 
@@ -113,6 +118,7 @@ function divide() {
   numbers.push(y);
   x += "/";
   dec=false;
+  sign = "divide";
   y = "";
 }
 
@@ -131,18 +137,26 @@ function perc() {
 function equals() {
   numbers.push(y);
   var numb = eval(x);
-
   x = numb;
-  console.log(numb, x);
-  x="";
-  document.getElementById("result").innerHTML = numb;
-
-  y="";
-if (Number.isNaN(eval(x))) {
-  x="";
-  y="";
-  numbers= [];
-  number = "";
-    document.getElementById("result").innerHTML = "ERROR";
-}
+  if (x > 999999999 || x < 0.999999999 && x > 0) {
+    x = numb;
+    z = x.toExponential();
+  } else {
+    z = x;
+  }
+  console.log(numb, z, x, y);
+  document.getElementById("result").innerHTML = z;
+  if (sign === "plus") {
+    x += Number(y);
+  }
+  if (sign === "minus") {
+    x -= Number(y);
+  }
+  if (sign === "multiply") {
+    x *= Number(y);
+  }
+  if (sign === "divide") {
+    x /= Number(y);
+  }
+  z="";
 }
